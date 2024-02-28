@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>テストフォーム</title>
+    </head>
+    <body>
+        <h1>テストフォーム送信ページ</h1><br>
+        <h3><%= message %></h3><br>
+        <form method="post">
+            <table>
+                <tr>
+                    <th>商品名</th>
+                    <td><input type="text" name="itemName"></td>
+                </tr>
+                <tr>
+                    <th>個数</th>
+                    <td><input type="number" name="count"></td>
+                </tr>
+            </table>
+            <input type="submit" value="注文を確定">
+        </form><br>
+        <table>
+            <% for (var i of orders) { %>
+                <tr>
+                    <td><%= i.itemName %></td>
+                    <td><%= i.count %></td>
+                </tr>
+            <% } %>
+        </table>
+    </body>
+</html>

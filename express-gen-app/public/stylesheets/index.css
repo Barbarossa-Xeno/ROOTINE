@@ -1,0 +1,250 @@
+/* -- レイアウト -- */
+
+/* 基本設定 */
+html, body {
+    width: 100vw;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* トップ画面 */
+.top {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: cadetblue;
+}
+
+    /* トップ画面の左側のオブジェクト（見出し・フレーズ） */
+    .top .leftObject{
+        top: 7%;
+    }
+
+/* 機能紹介画面 */
+.functions {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    right: 0%;
+    bottom: -100%;
+    background-color: darkgoldenrod;
+    overflow-x: hidden;
+}
+
+    /* 機能紹介画面の左右オブジェクト（見出し・フレーズ） */
+    @media screen and (900px <= width) {
+        .functions .leftObject:nth-child(1) {
+            top: calc(5% + 1.5rem);
+        }
+
+        .functions .leftObject:nth-child(2) {
+            top: calc(22.5% + 1.5rem);
+        }
+
+        .functions .leftObject:nth-child(3) {
+            top: calc(40% + 1.5rem);
+        }
+    }
+
+    @media screen and not (900px <= width) {
+        .functions .leftObject:nth-child(1) {
+            top: calc(15% + 1.5rem);
+        }
+
+        .functions .leftObject:nth-child(2) {
+            top: calc(25.5% + 1.5rem);
+        }
+
+        .functions .leftObject:nth-child(3) {
+            top: calc(36% + 1.5rem);
+        }
+    }
+
+    .functions .rightObject {
+        top: 12.5%;
+    }
+
+.caption p {
+    font-family: F1_8, Zen Maru Gothic, sans-serif;
+    font-size: max(3.3vw, 2.0em);
+    font-weight: bolder;
+    letter-spacing: max(1vw, 0.15em);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+    .caption p .strong {
+        display: inline-block;
+        position: relative;
+        width: max-content;
+        height: max-content;
+        font-size: 1.2em;
+        font-weight: 500;
+        margin-right: 0.3em;
+        letter-spacing: max(0.6vw, 0.1em);
+        padding-top: 7px;
+        padding-left: 10px;
+        padding-right: 7px;
+        transform: skewX(-10deg);
+        background-color: brown;
+    }
+
+.phrase p {
+    font-family: Zen Old Gothic, serif;
+    font-size: max(6em, 10vh);
+    font-weight: lighter;
+    transform: scale(0.8, 1);
+}
+
+.verticalText {
+    text-align: right;
+    letter-spacing: 0.5em;
+    writing-mode: vertical-rl;
+}
+
+    .verticalText p {
+        margin: 0;
+    }
+
+.overview {
+    position: absolute;
+    bottom: 0%;
+    padding: max(30px, 2%);
+}
+
+    .overview p {
+        font-family: Zen Maru Gothic, sans-serif;
+        font-weight: normal;
+        font-size: min(1.5em, 4vw);
+        letter-spacing: 0.07em;
+        line-height: 1.7em;
+        margin: 0;
+    }
+
+.leftObject {
+    position: absolute;
+    left: min(40px, 5%);
+}
+
+.rightObject {
+    position: absolute;
+    right: 30px;
+}
+
+.rightObject.phrase {
+    letter-spacing: max(-1.6em, -18px);
+    right: -38px;
+}
+
+.appIcon {
+    position: relative;
+    top: 50%;
+    margin: auto;
+    width: max(15%, 140px);
+    height: 0;
+    padding-top: max(15%, 140px);
+    border-radius: 50%;
+    background-color: aliceblue;
+    box-shadow: 0px 0px 30px -2px rgba(0, 0, 0, 0.4);
+}
+
+    .appIcon #logIn {
+        position: relative;
+        transform: translate(-50%, -50%);
+        margin: 5vh 50% auto 50%;
+        padding: 8px 18px 8px 18px;
+        width: max-content;
+        text-align: center;
+        font-size: 1.2em;
+        font-family: "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        border-radius: 25px;
+        background-color: rgb(0, 191, 255);
+        box-shadow: 0px 0px 20px 0px rgba(0, 150, 255, 0.4);
+        border-width: 0;
+    }
+
+/* -- フォント -- */
+/* Zen Maru Gothic Family */
+@font-face {
+    font-family: "Zen Maru Gothic";
+    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Light.ttf) format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zen Maru Gothic";
+    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Regular.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zen Maru Gothic";
+    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Medium.ttf) format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zen Maru Gothic";
+    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zen Maru Gothic";
+    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Black.ttf) format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Zen Old Mincho */
+@font-face {
+    font-family: "Zen Old Mincho";
+    src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-Regular.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zen Old Mincho";
+    src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-Medium.ttf) format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zen Old Mincho";
+    src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-SemiBold.ttf) format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zen Old Mincho";
+    src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zen Old Mincho";
+    src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-Black.ttf) format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* F1.8 */
+@font-face {
+    font-family: "F1_8";
+    src: url(../fonts/F1.8-Regular.otf) format("opentype");
+}

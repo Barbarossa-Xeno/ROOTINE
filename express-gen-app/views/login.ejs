@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+    </head>
+    <body>
+        <h1><%= title %></h1>
+        <p><%- content %></p>
+        <form action="/login/post" method="POST">
+            ID: <input type="text" name="userId"><br>
+            パスワード: <input type="text" name="password">
+            <input type="submit" value="ログイン">
+        </form>
+    </body>
+</html>

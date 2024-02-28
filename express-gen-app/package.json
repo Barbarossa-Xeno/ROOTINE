@@ -1,0 +1,18 @@
+{
+  "name": "express-gen-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "http-errors": "~1.6.3",
+    "mongoose": "^8.1.3",
+    "morgan": "~1.9.1"
+  }
+}
