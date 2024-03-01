@@ -4,7 +4,10 @@
 
 ## Markdown (mdファイル) のチートシート
 mdファイルの記述法はこちらのサイトなどを参照する、それかググる<br>
-https://qiita.com/Hase-pro/items/16379a0c83f2725e3a11
+- [Markdown 書き方の基本をまとめてみた](https://qiita.com/Hase-pro/items/16379a0c83f2725e3a114)
+- [MarkdownでTable(表テーブル)を書く](https://notepm.jp/help/markdown-table)
+- [全プロジェクトで重宝されるイケてるREADMEを作成しよう！](https://qiita.com/shun198/items/c983c713452c041ef787)
+- [読みたくなるREADMEを書くためのコツ](https://zenn.dev/bloomer/articles/3f73f7d02e5a63)
 
 
 ## ソースコードのコメント
