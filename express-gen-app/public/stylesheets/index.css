@@ -16,7 +16,8 @@ html, body {
     top: 0%;
     left: 0%;
     right: 0%;
-    bottom: 0%;
+    width: 100%;
+    height: 100%;
     background-color: cadetblue;
 }
 
@@ -31,7 +32,8 @@ html, body {
     top: 100%;
     left: 0%;
     right: 0%;
-    bottom: -100%;
+    width:100%;
+    height: 100%;
     background-color: darkgoldenrod;
     overflow-x: hidden;
 }
@@ -67,6 +69,68 @@ html, body {
 
     .functions .rightObject {
         top: 12.5%;
+    }
+
+/* 共有機能紹介画面 */
+.cooperations {
+    position: absolute;
+    top: 200%;
+    left: 0%;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: rebeccapurple;
+    overflow-x: hidden;
+}
+
+    /* 共有機能紹介画面の左右オブジェクト（見出し・フレーズ） */
+    @media screen and (900px <= width) {
+        .cooperations .rightObject:nth-child(1) {
+            top: calc(5% + 1.5rem);
+        }
+
+        .cooperations .rightObject:nth-child(2) {
+            top: calc(22.5% + 1.5rem);
+        }
+
+        .cooperations .rightObject:nth-child(3) {
+            top: calc(40% + 1.5rem);
+        }
+    }
+
+    @media screen and not (900px <= width) {
+        .cooperations .rightObject:nth-child(1) {
+            top: calc(15% + 1.5rem);
+        }
+
+        .cooperations .rightObject:nth-child(2) {
+            top: calc(25.5% + 1.5rem);
+        }
+
+        .cooperations .rightObject:nth-child(3) {
+            top: calc(36% + 1.5rem);
+        }
+    }
+
+    .cooperations .leftObject {
+        top: 12.5%;
+    }
+
+footer {
+    position: absolute;
+    top: 300%;
+    left: 0%;
+    right: 0%;
+    width: 100%;
+    height: 12.5%;
+    background-color: black;
+}
+
+    footer p {
+        font-size: 1em;
+        font-family: "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+        text-align: center;
+        color: white;
     }
 
 .caption p {
@@ -131,15 +195,20 @@ html, body {
     left: min(40px, 5%);
 }
 
+.leftObject.phrase {
+    letter-spacing: max(-1.6em, -18px);
+    left: -38px;
+}
+
 .rightObject {
     position: absolute;
     right: 30px;
 }
 
-.rightObject.phrase {
-    letter-spacing: max(-1.6em, -18px);
-    right: -38px;
-}
+    .rightObject.phrase {
+        letter-spacing: max(-1.6em, -18px);
+        right: -38px;
+    }
 
 .appIcon {
     position: relative;
