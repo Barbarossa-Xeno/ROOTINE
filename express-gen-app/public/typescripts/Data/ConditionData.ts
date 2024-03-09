@@ -3,7 +3,7 @@ namespace Rootine
     /**
      * 現在受けている注文のデータを格納するクラス
      */
-    class ConditionDData
+    class ConditionData
     {
         /**
          * 現在選択中の整理券番号
