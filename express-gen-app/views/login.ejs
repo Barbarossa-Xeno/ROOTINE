@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><%= title %></title>
+        <title>ログイン | ROUTINE</title>
+        <link rel="stylesheet" href="/stylesheets/login.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </head>
     <body>
-        <h1><%= title %></h1>
-        <p><%- content %></p>
-        <form action="/login/post" method="POST">
-            ID: <input type="text" name="userId"><br>
-            パスワード: <input type="text" name="password">
-            <input type="submit" value="ログイン">
-        </form>
+        <div class="menu">
+            <h2>ログイン</h2>
+            <%- messageArea %>
+            <form method="POST">
+                <p>ID</p>
+                <input type="text" name="userId" value=<%= _userId %>><br>
+                <p>パスワード</p>
+                <input type="text" name="password"><br>
+                <input type="submit" value="ログイン" id="logIn">
+            </form>
+        </div>
+        
     </body>
 </html>
