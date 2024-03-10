@@ -2,30 +2,6 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const setting = require("../public/javascripts/setting").setting;
 
-/*
-let data = { title: "", content: "" };
-
-router.get("/", (req, res, next) => {
-    
-    // クエリパラメータを使うときのためのメモ
-    let message = req.query.userId
-                    ? `<b>${req.query.userId}さん、こんにちは。</b><br>ログイン画面です。<br>The time to log in now.`
-                    : "<br>ログイン画面です。<br>The time to log in now.";
-    // セッションを利用するときのためのメモ
-    message = req.session.userId
-                ? message + `<br>前回のログインID: ${req.session.userId}`
-                : message;
-
-    const _data = {
-        title: "LOG IN",
-        content: message
-    };
-
-    res.render("login", data.title == "" ? _data : data != _data ? data : _data);
-    data = _data;
-});
-*/
-
 /**
  * ステータスによってログインページに表示するHTMLタグを作る
  * @param {string} message ログインステータスに関連したメッセージ
@@ -36,17 +12,19 @@ function generateTag(message) {
 }
 
 router.get("/", (req, res, next) => {
-    // login.ejsに message を渡す
+    // login.ejsに データ を渡す
     res.render("login", { messageArea: "", _userId: "" });
 });
 
+// form からデータをPOSTで受け取る
 router.post("/", (req, res, next) => {
+    // DBに接続
     mongoose.connect(setting.db.url);
     let db = mongoose.connection;
     
     // ステータスを出力
     db.on("error", () => console.error.bind("Failed to connect DB"));
-    db.once("open", () => console.log("Succeeded to connect DB"));
+    // db.once("open", () => console.log("Succeeded to connect DB"));
 
     // アカウントを検索
     if (req.body.userId && req.body.password) {
@@ -55,7 +33,7 @@ router.post("/", (req, res, next) => {
         target.then((result, error) => {
                 // 該当しなかった場合
                 if (!result) {
-                    // IDが見つからなかった旨のメッセージを添付して再読込
+                    // IDが見つからなかった旨のメッセージを添付して再描画
                     return res.render("login", {
                         messageArea: generateTag("IDが見つかりませんでした。"),
                         _userId: ""
@@ -67,7 +45,7 @@ router.post("/", (req, res, next) => {
                         return res.redirect("/?test=100");
                     }
                     else {
-                        // パスワードに誤りがある旨のメッセージを添付して再読込
+                        // パスワードに誤りがある旨のメッセージを添付して再描画
                         return res.render("login", {
                             messageArea: generateTag("パスワードが間違っています。"),
                             _userId: req.body.userId
@@ -83,6 +61,7 @@ router.post("/", (req, res, next) => {
                 }
             });
     }
+    // IDやパスワードが未入力または不正の場合
     else if (!req.body.userId || !req.body.password) {
         return res.render("login", {
             messageArea: generateTag("IDとパスワードを正しく入力しているか確認してください。"),
