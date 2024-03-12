@@ -5,7 +5,12 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/:userId", (req, res, next) => {
-    res.render("home", { userId: req.params.userId });
+    if (req.session.userId === req.params.userId) {
+        res.render("home", { userId: req.params.userId });
+    }
+    else {
+        res.redirect("login");
+    }
 });
 
 module.exports = router;

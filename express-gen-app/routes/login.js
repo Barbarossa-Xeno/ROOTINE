@@ -45,7 +45,7 @@ router.post("/", (req, res, next) => {
                 // 該当した場合
                 else if (result && !error) {
                     if (result.password === req.body.password) {
-                        req.session.isLogegdIn = true;
+                        // req.session.isLogegdIn = true;
                         req.session.userId = req.body.userId;
                         return res.redirect(`/${req.body.userId}`);
                     }
