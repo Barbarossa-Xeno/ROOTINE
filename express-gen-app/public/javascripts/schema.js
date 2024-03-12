@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 /**
  * アカウント情報のスキーマ
- * @property {string} userId
- * @property {string} password
+ * @property {String} userId
+ * @property {String} password
  */
 const account = new Schema({
     userId: String,
@@ -13,4 +13,4 @@ const account = new Schema({
 
 module.exports = {
     account: account
-}
+};

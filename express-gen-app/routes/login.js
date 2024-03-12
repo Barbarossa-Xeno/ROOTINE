@@ -12,6 +12,9 @@ function generateTag(message) {
 }
 
 router.get("/", (req, res, next) => {
+    if (req.session.isLogegdIn) {
+        return res.redirect(`/${req.session.userId}`);
+    }
     // login.ejsに データ を渡す
     res.render("login", { messageArea: "", _userId: "" });
 });
@@ -42,7 +45,9 @@ router.post("/", (req, res, next) => {
                 // 該当した場合
                 else if (result && !error) {
                     if (result.password === req.body.password) {
-                        return res.redirect("/?test=100");
+                        req.session.isLogegdIn = true;
+                        req.session.userId = req.body.userId;
+                        return res.redirect(`/${req.body.userId}`);
                     }
                     else {
                         // パスワードに誤りがある旨のメッセージを添付して再描画

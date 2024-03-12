@@ -5,10 +5,18 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require("express-session");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const loginRouter = require("./routes/login");
-const formRouter = require("./routes/form");
+/**
+ * インポートしたルーター
+ */
+const routers = Object.freeze({
+  /** index のルーター */
+  index: require('./routes/index'),
+  /** login のルーター */
+  login: require("./routes/login"),
+  /** home のルーター */
+  home: require("./routes/home"),
+  form: require("./routes/form")
+});
 
 var app = express();
 
@@ -18,21 +26,22 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-  secret: "Keybord cat",
+  secret: "ROOTINESESSION",
   resave: false,
   saveUninitialized: false,
   cookie: { maxAge: 60 * 60 * 1000 }
 }));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use("/login", loginRouter);
-app.use("/form", formRouter);
+//ルーターの設定
+app.use('/index', routers.index);
+app.use("/login", routers.login);
+app.use("/", routers.home)
+app.use("/form", routers.form);
 // public フォルダを公開
 // app.use("/public", express.static("public"));
 
