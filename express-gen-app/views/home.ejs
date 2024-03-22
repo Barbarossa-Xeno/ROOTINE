@@ -1,15 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title><%= userId %>さんのホーム | ROOTINE</title>
-        <link rel="stylesheet" href="/stylesheets/home.css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    </head>
-    <body>
+
+<head>
+    <title>
+        <%= userId %>さんのホーム | ROOTINE
+    </title>
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+    <main>
         <header>
-            <div><img class="logo" src="/images/ROOTINE_logo_color.png"/></div>
-            <div><p><%= userId %></p></div>
-            <div></div>
+            <div class="logo"><img src="/images/ROOTINE_logo_color.png" /></div>
+            <div class="user-id">
+                <p>
+                    <%= userId %>
+                </p>
+            </div>
+            <div id="openMenu"></div>
         </header>
-    </body>
+        <div class="top">
+            <div class="widget-area">
+                <div class="widget current-order">
+                    <h3>待機注文数</h3>
+                    <p><span>10</span>組</p>
+                </div>
+                <div class="widget current-reservation">
+                    <h3>整理券状況</h3>
+                    <ul>
+                        <li>1 <span>(1)</span></li>
+                        <li>2 <span>(1)</span></li>
+                        <li>3 <span>(1)</span></li>
+                        <li>4 <span>(1)</span></li>
+                        <li>5 <span>(1)</span></li>
+                        <li>6 <span>(1)</span></li>
+                    </ul>
+                </div>
+                <div class="widget order-history">
+                    <h3>注文履歴</h3>
+                    <ul>
+                        <li><span>商品1</span><span>×1</span><span>No.1</span></li>
+                        <li><span>商品1</span><span>×1</span><span>No.1</span></li>
+                        <li><span>商品1</span><span>×1</span><span>No.1</span></li>
+                        <li><span>商品1</span><span>×1</span><span>No.1</span></li>
+                        <li><span>商品1</span><span>×1</span><span>No.1</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="palette">
+                <div class="pins"></div>
+                <div class="apps">
+                    <button id="addOrder"></button>
+                    <button id="completeOrder"></button>
+                    <button id="orderHistory"></button>
+                    <button id="registerItem"></button>
+                    <button id="itemInformation"></button>
+                    <button id="saleStatus"></button>
+                    <button id="calculateSale"></button>
+                    <button id="manageShift"></button>
+                    <button id="storeSetting"></button>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <span class="nav-close-area"></button>
+            <li>てすと</li>
+            <li>設定</li>
+        </nav>
+    </main>
+
+</body>
+
 </html>

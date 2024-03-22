@@ -1,23 +1,35 @@
 /* -- レイアウト -- */
 
 /* 基本設定 */
+* {
+    align-content: normal;
+    box-sizing: border-box;
+}
+
 html, body {
-    width: 100vw;
-    height: 100%;
+    width: 100%;
+    height: 100vh;
+}
+
+body {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
     overflow-x: hidden;
+}
+
+/* メイン */
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* トップ画面 */
 .top {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    right: 0%;
+    position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background-color: cadetblue;
 }
 
@@ -28,12 +40,9 @@ html, body {
 
 /* 機能紹介画面 */
 .functions {
-    position: absolute;
-    top: 100%;
-    left: 0%;
-    right: 0%;
-    width:100%;
-    height: 100%;
+    position: relative;
+    width: 100%;
+    min-height: 100%;
     background-color: darkgoldenrod;
     overflow-x: hidden;
 }
@@ -73,12 +82,9 @@ html, body {
 
 /* 共有機能紹介画面 */
 .cooperations {
-    position: absolute;
-    top: 200%;
-    left: 0%;
-    right: 100%;
+    position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background-color: rebeccapurple;
     overflow-x: hidden;
 }
@@ -117,27 +123,22 @@ html, body {
     }
 
 footer {
-    position: absolute;
-    top: 300%;
-    left: 0%;
-    right: 0%;
     width: 100%;
-    height: 12.5%;
     background-color: black;
 }
 
     footer p {
-        font-size: 1em;
-        font-family: "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+        font-size: calc(0.5em + 0.5vw);
+        font-family: "Makinas 4 Flat", sans-serif;
         text-align: center;
         color: white;
     }
 
 /* 各種文章用クラス */
 .caption p {
-    font-family: F1_8, Zen Maru Gothic, sans-serif;
+    font-family: "Makinas 4 Flat", sans-serif;
     font-size: max(3.3vw, 2.0em);
-    font-weight: bolder;
+    font-weight: normal;
     letter-spacing: max(1vw, 0.15em);
     margin-top: 0;
     margin-bottom: 1.5rem;
@@ -160,7 +161,7 @@ footer {
     }
 
 .phrase p {
-    font-family: Zen Old Gothic, serif;
+    font-family: "Zen Old Gothic", serif;
     font-size: max(6em, 10vh);
     font-weight: lighter;
     transform: scale(0.8, 1);
@@ -180,10 +181,11 @@ footer {
     position: absolute;
     bottom: 0%;
     padding: max(30px, 2%);
+    z-index: 1;
 }
 
     .overview p {
-        font-family: Zen Maru Gothic, sans-serif;
+        font-family: "LINE Seed JP", sans-serif;
         font-weight: normal;
         font-size: min(1.5em, 4vw);
         letter-spacing: 0.07em;
@@ -195,6 +197,7 @@ footer {
 .leftObject {
     position: absolute;
     left: min(40px, 5%);
+    z-index: 1;
 }
 
 .leftObject.phrase {
@@ -205,6 +208,7 @@ footer {
 .rightObject {
     position: absolute;
     right: 30px;
+    z-index: 1;
 }
 
     .rightObject.phrase {
@@ -223,6 +227,7 @@ footer {
     border-radius: 50%;
     background-color: aliceblue;
     box-shadow: 0px 0px 30px -2px rgba(0, 0, 0, 0.4);
+    z-index: 99;
 }
 
     .appIcon #logIn {
@@ -232,8 +237,8 @@ footer {
         padding: 8px 18px 8px 18px;
         width: max-content;
         text-align: center;
-        font-size: 1.2em;
-        font-family: "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+        font-size: 1.5em;
+        font-family: "Makinas 4 Flat", "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
         font-weight: bold;
         letter-spacing: 0.1em;
         border-radius: 25px;
@@ -244,43 +249,36 @@ footer {
     }
 
 /* -- フォント -- */
-/* Zen Maru Gothic Family */
+/* LINE Seed JP Family */
 @font-face {
-    font-family: "Zen Maru Gothic";
-    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Light.ttf) format("truetype");
-    font-weight: 300;
+    font-family: "LINE Seed JP";
+    src: url(../fonts/LINE_Seed_JP/LINESeedJP_OTF_Th.woff2) format("woff2");
+    font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Zen Maru Gothic";
-    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Regular.ttf) format("truetype");
+    font-family: "LINE Seed JP";
+    src: url(../fonts/LINE_Seed_JP/LINESeedJP_OTF_Rg.woff2) format("woff2");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Zen Maru Gothic";
-    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Medium.ttf) format("truetype");
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Zen Maru Gothic";
-    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Bold.ttf) format("truetype");
+    font-family: "LINE Seed JP";
+    src: url(../fonts/LINE_Seed_JP/LINESeedJP_OTF_Bd.woff2) format("woff2");
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Zen Maru Gothic";
-    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Black.ttf) format("truetype");
-    font-weight: 900;
+    font-family: "LINE Seed JP";
+    src: url(../fonts/LINE_Seed_JP/LINESeedJP_OTF_Eb.woff2) format("woff2");
+    font-weight: 800;
     font-style: normal;
 }
 
-/* Zen Old Mincho */
+/* Zen Old Mincho Family */
 @font-face {
     font-family: "Zen Old Mincho";
     src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-Regular.ttf) format("truetype");
@@ -316,8 +314,8 @@ footer {
     font-style: normal;
 }
 
-/* F1.8 */
+/* Makinas 4 */
 @font-face {
-    font-family: "F1_8";
-    src: url(../fonts/F1.8-Regular.otf) format("opentype");
+    font-family: "Makinas 4 Flat";
+    src: url(../fonts/makinas4/Makinas-4-Flat.otf) format("opentype");
 }

@@ -2,6 +2,9 @@ import express from "express"
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
+    if (req.session.isLoggedIn) {
+        return res.render("home", { userId: req.session.id });
+    }
     res.redirect("index");
 });
 

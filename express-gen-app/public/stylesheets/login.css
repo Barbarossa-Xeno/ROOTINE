@@ -1,15 +1,20 @@
 /* -- レイアウト -- */
 
 /* 基本設定 */
-html, body {
-    width: 100vw;
-    height: 100%;
-    padding: 0;
-    margin: 0;
+* {
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
+html, body {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
 .menu {
     margin-top: 5%;
     margin-left: auto;
@@ -82,80 +87,37 @@ html, body {
         }
 
 /* -- フォント -- */
-/* Zen Maru Gothic Family */
+/* LINE Seed JP Family */
 @font-face {
-    font-family: "Zen Maru Gothic";
-    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Light.ttf) format("truetype");
-    font-weight: 300;
+    font-family: "LINE Seed JP";
+    src: url(../fonts/LINE_Seed_JP/LINESeedJP_OTF_Th.woff2) format("woff2");
+    font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Zen Maru Gothic";
-    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Regular.ttf) format("truetype");
+    font-family: "LINE Seed JP";
+    src: url(../fonts/LINE_Seed_JP/LINESeedJP_OTF_Rg.woff2) format("woff2");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Zen Maru Gothic";
-    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Medium.ttf) format("truetype");
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Zen Maru Gothic";
-    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Bold.ttf) format("truetype");
+    font-family: "LINE Seed JP";
+    src: url(../fonts/LINE_Seed_JP/LINESeedJP_OTF_Bd.woff2) format("woff2");
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Zen Maru Gothic";
-    src: url(../fonts/Zen_Maru_Gothic/ZenMaruGothic-Black.ttf) format("truetype");
-    font-weight: 900;
+    font-family: "LINE Seed JP";
+    src: url(../fonts/LINE_Seed_JP/LINESeedJP_OTF_Eb.woff2) format("woff2");
+    font-weight: 800;
     font-style: normal;
 }
 
-/* Zen Old Mincho */
+/* Makinas 4 */
 @font-face {
-    font-family: "Zen Old Mincho";
-    src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-Regular.ttf) format("truetype");
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Zen Old Mincho";
-    src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-Medium.ttf) format("truetype");
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Zen Old Mincho";
-    src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-SemiBold.ttf) format("truetype");
-    font-weight: 600;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Zen Old Mincho";
-    src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-Bold.ttf) format("truetype");
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Zen Old Mincho";
-    src: url(../fonts/Zen_Old_Mincho/ZenOldMincho-Black.ttf) format("truetype");
-    font-weight: 900;
-    font-style: normal;
-}
-
-/* F1.8 */
-@font-face {
-    font-family: "F1_8";
-    src: url(../fonts/F1.8-Regular.otf) format("opentype");
+    font-family: "Makinas 4 Flat";
+    src: url(../fonts/makinas4/Makinas-4-Flat.otf) format("opentype");
 }
