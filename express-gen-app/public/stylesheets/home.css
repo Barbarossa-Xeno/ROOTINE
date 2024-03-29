@@ -65,12 +65,53 @@ header {
         margin-left: 2.5%;
     }
 
-    /* ハンバーガー */
+    /* 
+     * ハンバーガー 
+     * https://coco-factory.jp/ugokuweb/move01/5-2-8/
+     */
     header #openMenu {
+        position: relative;
         aspect-ratio: 1;
-        background-color: coral;
+        cursor: pointer;
     }
 
+        header #openMenu div {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        header #openMenu span {
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            width: 70%;
+            height: 2px;
+            border-radius: 2px;
+            background-color: black;
+        }
+
+        /* #openMenu をクリックしたときに .active がトグルする */
+        header #openMenu.active div {
+            transform: rotate(180deg);
+            justify-content: center;
+        }
+
+        header #openMenu.active span { position: absolute; }
+
+        header #openMenu.active span:nth-of-type(1) { transform: rotate(-45deg); }
+
+        header #openMenu.active span:nth-of-type(2) {
+            opacity: 0;
+            display: none;
+        }
+        
+        header #openMenu.active span:nth-of-type(3) { transform: rotate(45deg); }
     
 
 /* トップ画面 */
@@ -98,7 +139,8 @@ header {
         height: fit-content;
         margin: 3%;
         padding: max(2vw, 20px);
-        background-color: rgba(245,245,245,0.8);
+        background-color: rgba(245, 245, 245, 0.8);
+        backdrop-filter: blur(10px);
         border-radius: 8px;
     }
 
@@ -207,31 +249,36 @@ header {
             padding: 0;
         }
 
-nav {
+/* #openMenu の押下により開閉するサイドバー */
+#sideBar {
     position: fixed;
-    right: 0%;
+    top: 7.5%;
+    right: -50%;
     min-width: fit-content;
-    height: 100vh;
-    padding: 0 010px 0 10%;
+    height: 100%;
+    padding: 0 10px 0 7.5%;
     background-color: #ffffffcc;
     text-align: right;
     list-style-type: none;
-    z-index: 10;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 8;
 }
 
-    nav .nav-close-area {
-        height: calc(7.5%* 0.8);
-        margin-top: calc(7.5%* 0.8);
-        margin-bottom: calc(7.5%* 0.8);
-        aspect-ratio: 1;
-        padding: 0;
-    }
+#sideBar.active {
+    right: 0%;
+}
 
-    nav li {
+    #sideBar li {
         font-size: calc(1em + 0.5vw);
         margin-top: calc(1em + 0.5vw);
         margin-bottom: calc(1em + 0.5vw);
     }
+
+    #sideBar a {
+        text-decoration: none;
+        color: black;
+    }
+
 
 /* -- フォント -- */
 /* LINE Seed JP Family */

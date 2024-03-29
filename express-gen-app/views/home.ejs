@@ -18,7 +18,17 @@
                     <%= userId %>
                 </p>
             </div>
-            <div id="openMenu"></div>
+            <!-- 
+                ハンバーガーアイコン
+                https://coco-factory.jp/ugokuweb/move01/5-2-8/
+            -->
+            <div id="openMenu">
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </header>
         <div class="top">
             <div class="widget-area">
@@ -63,13 +73,19 @@
                 </div>
             </div>
         </div>
-        <nav>
-            <span class="nav-close-area"></button>
+        <nav id="sideBar">
             <li>てすと</li>
             <li>設定</li>
+            <li><a href="index">インデックス</a></li>
         </nav>
     </main>
 
+    <script>
+        document.getElementById("openMenu").addEventListener("click", function() {
+            this.classList.toggle("active");
+            document.getElementById("sideBar").classList.toggle("active");
+        });
+    </script>
 </body>
 
 </html>
