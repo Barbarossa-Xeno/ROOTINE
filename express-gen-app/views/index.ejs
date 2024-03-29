@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ROOTINE | 高専祭模擬店運営アシストアプリ</title>
+  <title>ROOTINE | 高専祭模擬店アプリ</title>
   <link rel='stylesheet' href='/stylesheets/index.css' />
   <link rel="stylesheet" href="/libraries/particles.js/myParticles.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,28 +9,37 @@
 <body>
   <main>
     <!-- トップ画面 -->
-    <div class="top">
-      <div class="leftObject caption">
+    <section class="top">
+      <div class="border">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="detail-arrow vertical-text">←DETAIL</div>
+      </div>
+      <div class="left-object caption">
         <p><span class="strong">ROOTINE</span>で</p>
         <p>巡ってゆく、</p>
         <p>私達の高専祭。</p>
       </div>
-      <div class="appIcon">
+      <div class="app-info">
+        <div class="circle"><img src="/images/ROOTINE_logo_color.png"/></div>
+        <p>高専祭模擬店アプリ<br><span class="strong">ROOTINE</span></p>
         <button id="logIn" onclick="location.href='login'">ログイン</button>
       </div>
-    </div>
+    </section>
     <!-- 機能紹介画面 -->
-    <div class="functions">
-      <div class="leftObject caption">
+    <section class="functions">
+      <div class="left-object caption">
         <p><span class="strong">商品</span>登録</p>
       </div>
-      <div class="leftObject caption">
+      <div class="left-object caption">
         <p><span class="strong">売上</span>集計</p>
       </div>
-      <div class="leftObject caption">
+      <div class="left-object caption">
         <p><span class="strong">整理券</span>連動</p>
       </div>
-      <div class="verticalText rightObject phrase">
+      <div class="vertical-text right-object phrase">
         <p>仕事よ舞え。</p>
       </div>
       <div class="overview">
@@ -39,19 +48,19 @@
           さらに、現実の「整理券」と連動させることで、注文管理を体系化できます。
         </p>
       </div>
-    </div>
+    </section>
     <!-- 共有機能紹介画面 -->
-    <div class="cooperations">
-      <div class="rightObject caption">
+    <section class="cooperations">
+      <div class="right-object caption">
         <p><span class="strong">注文</span>状況</p>
       </div>
-      <div class="rightObject caption">
+      <div class="right-object caption">
         <p><span class="strong">売上</span>状況</p>
       </div>
-      <div class="rightObject caption">
+      <div class="right-object caption">
         <p><span class="strong">シフト</span>管理</p>
       </div>
-      <div class="verticalText leftObject phrase">
+      <div class="vertical-text left-object phrase">
         <p>｢今｣を共に。</p>
       </div>
       <div class="overview">
@@ -60,7 +69,7 @@
           また、シフト管理などみんなで共有できる様々な便利機能を用意しています。
         </p>
       </div>
-    </div>
+    </section>
     <footer>
       <p>ROOTINE</p>
       <P>© 2024 ICT Science Club@NIT, Kure Collage</P>
@@ -69,7 +78,7 @@
   <div id="particles-js"></div>
 
   <script src="/libraries/particles.js/particles.min.js"></script>
-  <script src="/libraries/particles.js/myParticles.js"></script>
+  <!-- <script src="/libraries/particles.js/myParticles.js"></script> -->
   
 </body>
 </html>

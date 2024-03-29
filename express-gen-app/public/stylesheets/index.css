@@ -14,6 +14,7 @@ html, body {
 body {
     padding: 0;
     margin: 0;
+    position: relative;
     overflow-x: hidden;
 }
 
@@ -25,100 +26,212 @@ main {
     flex-direction: column;
 }
 
-/* トップ画面 */
-.top {
+/* 各セクション */
+section {
     position: relative;
     width: 100%;
     min-height: 100%;
-    background-color: cadetblue;
+    overflow: hidden;
 }
 
-    /* トップ画面の左側のオブジェクト（見出し・フレーズ） */
-    .top .leftObject{
-        top: 7%;
+/* トップ画面 */
+.top { background: #f3b928; }
+
+    /* トップ画面の枠線アニメーション */
+    .top .border {
+        position: relative;
+        top: 3.5%;
+        width: calc(100% - min(40px, 5%));
+        height: calc(100% - 7%);
+        margin: 0 auto;
+        /* overflowを隠せばアニメーションで描画されすぎた部分がカットされる */
+        overflow: hidden;
     }
 
+        .top .border span {
+            position: absolute;
+            background-color: whitesmoke;
+            display: block;
+        }
+
+        .top .border span:nth-of-type(2n+1) {
+            width: 100%;
+            height: 0px;
+        }
+
+        .top .border span:nth-of-type(2n) {
+            height: 100%;
+            width: 0px;
+        }
+
+        .top .border span:nth-of-type(1) {
+            animation: border-animation-top 1s linear forwards;
+            animation-delay: 3s;
+        }
+
+
+        .top .border span:nth-of-type(2) {
+            animation: border-animation-left 1s linear forwards;
+        }
+
+        .top .border span:nth-of-type(3) {
+            bottom: 0;
+            animation: border-animation-bottom 1s linear forwards;
+            animation-delay: 1s;
+        }
+
+        .top .border span:nth-of-type(4) {
+            right: 0;
+            animation: border-animation-right 1s linear forwards;
+            animation-delay: 2s;
+        }
+
+        .top .border .detail-arrow {
+            position: absolute;
+            bottom: calc(max(2vw, 10px) + 2%);
+            right: max(2vw, 10px);
+            transform: rotate(180deg);
+            font-size: calc(0.7em + 0.7vw);
+            font-weight: 200;
+            color: whitesmoke;
+            animation: arrow-down-animation 3s ease-in-out infinite;
+            animation-delay: 5s;
+        }
+
+    /* トップ画面の左側のオブジェクト（見出し・フレーズ） */
+    .top .left-object{
+        top: 7%;
+        color: whitesmoke
+    }
+
+    /* アプリアイコンとログインボタン */
+    .top .app-info {
+        position: absolute;
+        top: 40%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        max-width: max-content;
+        z-index: 99;
+    }   
+
+    .top .app-info .circle{
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        width: 45%;
+        aspect-ratio: 1;
+        background: whitesmoke;
+        border-radius: 30%;
+    }
+
+        .top .app-info .circle img {
+            position: absolute;
+            width: 70%;
+            inset: 0;
+            margin: auto;
+        }
+
+    .top .app-info p {
+        font-family: "LINE Seed JP";
+        font-size: 1rem;
+        letter-spacing: 0.8rem;
+        line-height: 2rem;
+        color: whitesmoke;
+        min-width: max-content;
+        text-align: center;
+        margin: 10% 0;
+    }
+    .top .app-info #logIn {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        padding: 10px 18px;
+        width: max-content;
+        text-align: center;
+        font-size: 1.25em;
+        font-family: "Makinas 4 Flat", "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        color: whitesmoke;
+        border-radius: 25px;
+        background-color: transparent;
+        box-shadow: 0px 0px 20px 0px rgba(245, 245, 245, 0.4);
+        border: 3px solid whitesmoke;
+        cursor: pointer;
+    }
+
+    
+
 /* 機能紹介画面 */
-.functions {
-    position: relative;
-    width: 100%;
-    min-height: 100%;
-    background-color: darkgoldenrod;
-    overflow-x: hidden;
-}
+.functions { background-color: whitesmoke; }
 
     /* 機能紹介画面の左右オブジェクト（見出し・フレーズ） */
     @media screen and (900px <= width) {
-        .functions .leftObject:nth-child(1) {
+        .functions .left-object:nth-child(1) {
             top: calc(5% + 1.5rem);
         }
 
-        .functions .leftObject:nth-child(2) {
+        .functions .left-object:nth-child(2) {
             top: calc(22.5% + 1.5rem);
         }
 
-        .functions .leftObject:nth-child(3) {
+        .functions .left-object:nth-child(3) {
             top: calc(40% + 1.5rem);
         }
     }
 
     @media screen and not (900px <= width) {
-        .functions .leftObject:nth-child(1) {
+        .functions .left-object:nth-child(1) {
             top: calc(15% + 1.5rem);
         }
 
-        .functions .leftObject:nth-child(2) {
+        .functions .left-object:nth-child(2) {
             top: calc(25.5% + 1.5rem);
         }
 
-        .functions .leftObject:nth-child(3) {
+        .functions .left-object:nth-child(3) {
             top: calc(36% + 1.5rem);
         }
     }
 
-    .functions .rightObject {
+    .functions .right-object {
         top: 12.5%;
     }
 
 /* 共有機能紹介画面 */
-.cooperations {
-    position: relative;
-    width: 100%;
-    min-height: 100%;
-    background-color: rebeccapurple;
-    overflow-x: hidden;
-}
+.cooperations { background-color: whitesmoke; }
 
     /* 共有機能紹介画面の左右オブジェクト（見出し・フレーズ） */
     @media screen and (900px <= width) {
-        .cooperations .rightObject:nth-child(1) {
+        .cooperations .right-object:nth-child(1) {
             top: calc(5% + 1.5rem);
         }
 
-        .cooperations .rightObject:nth-child(2) {
+        .cooperations .right-object:nth-child(2) {
             top: calc(22.5% + 1.5rem);
         }
 
-        .cooperations .rightObject:nth-child(3) {
+        .cooperations .right-object:nth-child(3) {
             top: calc(40% + 1.5rem);
         }
     }
 
     @media screen and not (900px <= width) {
-        .cooperations .rightObject:nth-child(1) {
+        .cooperations .right-object:nth-child(1) {
             top: calc(15% + 1.5rem);
         }
 
-        .cooperations .rightObject:nth-child(2) {
+        .cooperations .right-object:nth-child(2) {
             top: calc(25.5% + 1.5rem);
         }
 
-        .cooperations .rightObject:nth-child(3) {
+        .cooperations .right-object:nth-child(3) {
             top: calc(36% + 1.5rem);
         }
     }
 
-    .cooperations .leftObject {
+    .cooperations .left-object {
         top: 12.5%;
     }
 
@@ -157,7 +270,7 @@ footer {
         padding-left: 10px;
         padding-right: 7px;
         transform: skewX(-10deg);
-        background-color: brown;
+        background-color: #e1a61a;
     }
 
 .phrase p {
@@ -167,13 +280,13 @@ footer {
     transform: scale(0.8, 1);
 }
 
-.verticalText {
+.vertical-text {
     text-align: right;
     letter-spacing: 0.5em;
     writing-mode: vertical-rl;
 }
 
-    .verticalText p {
+    .vertical-text p {
         margin: 0;
     }
 
@@ -194,59 +307,93 @@ footer {
     }
 
 /* 右寄せ・左寄せオブジェクトの基本設定 */
-.leftObject {
+.left-object {
     position: absolute;
     left: min(40px, 5%);
     z-index: 1;
 }
 
-.leftObject.phrase {
+.left-object.phrase {
     letter-spacing: max(-1.6em, -18px);
     left: -38px;
 }
 
-.rightObject {
+.right-object {
     position: absolute;
     right: 30px;
     z-index: 1;
 }
 
-    .rightObject.phrase {
+    .right-object.phrase {
+        position: absolute;
         letter-spacing: max(-1.6em, -18px);
         right: -38px;
     }
 
-/* アプリアイコンとログインボタン */
-.appIcon {
-    position: relative;
-    top: 50%;
-    margin: auto;
-    width: max(15%, 140px);
-    height: 0;
-    padding-top: max(15%, 140px);
-    border-radius: 50%;
-    background-color: aliceblue;
-    box-shadow: 0px 0px 30px -2px rgba(0, 0, 0, 0.4);
-    z-index: 99;
+/* -- アニメーション -- */
+
+/* .top .border での枠線のアニメーション */
+@keyframes border-animation-left {
+    /* 上から下 */
+    from {
+        width: 2px;
+        height: 100%;
+        transform: translateY(-100%);
+    }
+    to {
+        width: 2px;
+        height: 100%;
+        transform: translateY(0%);
+    }
 }
 
-    .appIcon #logIn {
-        position: relative;
-        transform: translate(-50%, -50%);
-        margin: 5vh 50% auto 50%;
-        padding: 8px 18px 8px 18px;
-        width: max-content;
-        text-align: center;
-        font-size: 1.5em;
-        font-family: "Makinas 4 Flat", "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
-        font-weight: bold;
-        letter-spacing: 0.1em;
-        border-radius: 25px;
-        background-color: rgb(0, 191, 255);
-        box-shadow: 0px 0px 20px 0px rgba(0, 150, 255, 0.4);
-        border-width: 0;
-        cursor: pointer;
+@keyframes border-animation-bottom {
+    /* 左から右 */
+    from {
+        width: 100%;
+        height: 2px;
+        transform: translateX(-100%);
     }
+    to {
+        width: 100%;
+        height: 2px;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes border-animation-right {
+    /* 下から上 */
+    from {
+        width: 2px;
+        height: 100%;
+        transform: translateY(100%);
+    }
+    to {
+        width: 2px;
+        height: 100%;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes border-animation-top {
+    /* 右から左 */
+    from {
+        width: 100%;
+        height: 2px;
+        transform: translateX(100%);
+    }
+    to {
+        width: 100%;
+        height: 2px;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes arrow-down-animation {
+    0% { transform: translateY(0%) rotate(180deg); }
+    50% { transform: translateY(10%) rotate(180deg); }
+    100% { transform: translateY(0%) rotate(180deg); }
+}
 
 /* -- フォント -- */
 /* LINE Seed JP Family */
