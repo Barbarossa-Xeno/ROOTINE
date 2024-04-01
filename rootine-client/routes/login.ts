@@ -4,21 +4,12 @@ import { setting } from "../public/typescripts/util/setting"
 
 const router = express.Router();
 
-/**
- * ステータスによってログインページに表示するHTMLタグを作る
- * @param message ログインステータスに関連したメッセージ
- * @returns HTMLタグ (class="logInMessage")
- */
-function generateTag(message: string) {
-    return `<div class=\"logInMessage\"><p>${message}</p></div>`;
-}
-
 router.get("/", (req, res, next) => {
     if (req.session.isLoggedIn) {
         return res.redirect(`/${req.session.userId}`);
     }
     // login.ejsに データ を渡す
-    res.render("login", { messageArea: "", _userId: "" });
+    res.render("login", { message: null });
 });
 
 // form からデータをPOSTで受け取る
@@ -39,8 +30,7 @@ router.post("/", async (req, res, next) => {
         // 該当しなかった場合
         if (result == null) {
             return res.render("login", {
-                messageArea: generateTag("IDが見つかりませんでした。"),
-                _userId: ""
+                message: "IDが見つかりませんでした。"
             });
         }
         // 該当した場合
@@ -54,8 +44,7 @@ router.post("/", async (req, res, next) => {
             else {
             // パスワードに誤りがある旨のメッセージを添付して再描画
                 return res.render("login", {
-                    messageArea: generateTag("パスワードが間違っています。"),
-                    _userId: req.body.userId
+                    message: "パスワードが間違っています。"
                 });
             }
        }
@@ -63,8 +52,7 @@ router.post("/", async (req, res, next) => {
     // IDやパスワードが未入力または不正の場合
     else if (!req.body.userId || !req.body.password) {
         return res.render("login", {
-            messageArea: generateTag("IDとパスワードを正しく入力しているか確認してください。"),
-            _userId: ""
+            message: "IDとパスワードを正しく入力しているか確認してください。"
         });
     }
 });

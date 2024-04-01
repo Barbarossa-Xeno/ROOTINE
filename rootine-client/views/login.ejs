@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ログイン | ROUTINE</title>
+        <title>ログイン | ROOTINE</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css"/>
         <link rel="stylesheet" href="/stylesheets/login.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </head>
     <body>
-        <div class="menu">
+        <main>
+            <a href="index"><img src="/images/ROOTINE_logo_color.png"/></a>
             <h2>ログイン</h2>
-            <%- messageArea %>
-            <form method="POST">
-                <p>ID</p>
-                <input type="text" name="userId" value=<%= _userId %>><br>
-                <p>パスワード</p>
-                <input type="text" name="password"><br>
+            <p>事前に配布したID・パスワードを使用してログインしてください。</p>
+            <% if (message) { %>
+            <div class="message"><p><%- message %></p></div>
+            <% } %>
+            <form method="post" autocomplete="off">
+                <div class="input-wrapper">
+                    <div class="inner">
+                        <input type="text" name="userId" placeholder=" ">
+                        <div class="place-holder">IDを入力</div>
+                    </div>
+                </div>
+                <div class="input-wrapper">
+                    <div class="inner">
+                        <input id="passwordField" type="password" name="password" placeholder=" ">
+                        <div class="place-holder">パスワードを入力</div>
+                        <span id="showPassword" class="fa fa-eye"></span>
+                    </div>
+                </div>
                 <input type="submit" value="ログイン" id="logIn">
             </form>
-        </div>
+        </main>
+
+        <script src="/javascripts/client//login.js"></script>
     </body>
 </html>

@@ -14,77 +14,192 @@ body {
     padding: 0;
     margin: 0;
     overflow-x: hidden;
+    background: whitesmoke;
 }
-.menu {
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 70%;
-    border: 1px solid gray;
+
+/* メインパーツ */
+main {
+    position: absolute;
+    inset: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    padding: 2em 0;
+    min-height: max-content;
+    border: 1px solid #f3b928;
     border-radius: 15px;
+    animation: border-box-shadow-blinking 4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
     @media screen and (900px <= width) {
-        .menu {
+        main {
             width: 40%;
         }
     }
 
     @media screen and not (900px <= width) {
-        .menu {
+        main {
             width: 80%;
         }
     }
 
-    .menu .logInMessage {
+    main > a {
+        position: relative;
+        width: min(4em, 20%);
+        aspect-ratio: 1;
+    }
+
+    main > a > img { width: 100%; }
+
+    main h2 {
+        font-family: "Makinas 4 Flat", sans-serif;
+        letter-spacing: 1rem;
+        text-indent: 1rem;
+        text-align: center;
+        font-weight: bold;
+        font-style: italic;
+        position: relative;
+        margin: 1.25em 0;
+    }
+
+        main h2::after {
+            content: "";
+            display: block;
+            border: 0.6px solid black;
+            width: 100%;
+            height: 0px;
+            position: absolute;
+            bottom: -50%;
+        }
+    
+    main p {
+        font-family: "LINE Seed JP", sans-serif;
+        font-size: calc(0.6em + 0.4vw);
+        text-align: center;
+        width: 80%;
+        color: gray;
+    }
+
+    main .message {
         border: 1px solid red;
         border-radius: 8px;
         background-color: rgba(255, 0, 0, 0.3);
         margin: 2%;
+        padding: 0.5em 1em 0.5em 1em;
     }
 
-        .menu .logInMessage p {
-            font-family: Zen Maru Gothic, sans-serif;
-            font-size: 0.8em;
+        main .message p {
+            width: 100%;
             color: red;
-            text-align: center;
-            padding: 0.5em 1em 0.5em 1em;
             margin: 0;
         }
 
-    .menu form {
-        font-family: F1_8, Zen Maru Gothic, sans-serif;
+    main form {
+        width: 80%;
+        font-family: "LINE Seed JP", sans-serif;
     }
 
-        .menu form p {
-            margin: 0 0 5px 0;
+/* 入力フォームの外観 */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(3em + 0.5vh);
+    margin: 5% 0;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+    .input-wrapper .inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+    }
+
+        .input-wrapper .inner input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            border: none;
+            outline: none;
+            padding: 0 10px;
+            font-size: 1em;
+            background: transparent;
+            z-index: 1;
         }
 
-        .menu form input {
-            margin: 5px 0 10% 0;
+        .input-wrapper .inner .place-holder {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            padding-left: 10px;
+            font-size: calc(0.6em + 0.5vw);
+            line-height: 50px;
+            background: transparent;
+            color: #f3b928;
+            transition: all 0.1s;
         }
 
-        .menu form #logIn {
-            position: relative;
-            transform: translate(-50%, -50%);
-            margin: 7.5vh 50% auto 50%;
-            padding: 8px 18px 8px 18px;
-            width: max-content;
-            text-align: center;
-            font-size: 1.2em;
-            font-family: "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+        .input-wrapper .inner input:focus + .place-holder,
+        .input-wrapper .inner input:not(:placeholder-shown) + .place-holder {
+            color: #f4c45c;
+            font-size: calc(calc(0.6em + 0.5vw) * 0.85);
             font-weight: bold;
-            letter-spacing: 0.1em;
-            border-radius: 25px;
-            background-color: rgb(0, 191, 255);
-            box-shadow: 0px 0px 20px 0px rgba(0, 150, 255, 0.4);
-            border-width: 0;
-            cursor: pointer;
+            line-height: 10px;
+            width: max-content;
+            height: 10px;
+            padding: 0 5px;
+            background: whitesmoke;
+            transform: translate3d(5px, -50%, 0);
         }
+
+#showPassword {
+    color: gray;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    right: 1em;
+    top: 0;
+    transform: translateY(100%);
+}
+
+#logIn {
+    display: block;
+    position: relative;
+    margin: 10% auto 0 auto;
+    padding: 2.5% 4%;
+    width: max-content;
+    text-align: center;
+    font-size: calc(0.7em + 0.7vw);
+    font-family: "Makinas 4 Flat", "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #f3b928;
+    border-radius: 25px;
+    background-color: transparent;
+    box-shadow: 0px 0px 20px 0px rgba(243, 185, 40, 0.4);
+    border: 3px solid #f3b928;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+#logIn:hover, #logIn:focus {
+    color: whitesmoke;
+    background-color: #f3b928;
+}
+
+/* -- アニメーション -- */
+@keyframes border-box-shadow-blinking {
+    0% { box-shadow: 0px 0px 10px 0px rgba(243, 185, 40, 0.4); }
+    50% { box-shadow: 0px 0px 30px 0px rgba(243, 185, 40, 0.5); }
+    100% { box-shadow: 0px 0px 10px 0px rgba(243, 185, 40, 0.4); }
+}
 
 /* -- フォント -- */
 /* LINE Seed JP Family */
