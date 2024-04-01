@@ -142,26 +142,30 @@ section {
         text-align: center;
         margin: 10% 0;
     }
-    .top .app-info #logIn {
-        display: block;
-        position: relative;
-        margin: 0 auto;
-        padding: 10px 18px;
-        width: max-content;
-        text-align: center;
-        font-size: 1.25em;
-        font-family: "Makinas 4 Flat", "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
-        font-weight: bold;
-        letter-spacing: 0.1em;
-        color: whitesmoke;
-        border-radius: 25px;
-        background-color: transparent;
-        box-shadow: 0px 0px 20px 0px rgba(245, 245, 245, 0.4);
-        border: 3px solid whitesmoke;
-        cursor: pointer;
-    }
+#logIn {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    padding: 10px 18px;
+    width: max-content;
+    text-align: center;
+    font-size: 1.25em;
+    font-family: "Makinas 4 Flat", "ヒラギノ角ゴシック", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: whitesmoke;
+    border-radius: 25px;
+    background-color: transparent;
+    box-shadow: 0px 0px 20px 0px rgba(245, 245, 245, 0.4);
+    border: 3px solid whitesmoke;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
 
-    
+#logIn:hover, #logIn:focus {
+    color: #f3b928;
+    background-color: whitesmoke;
+}   
 
 /* 機能紹介画面 */
 .functions { background-color: whitesmoke; }
@@ -306,29 +310,57 @@ footer {
         margin: 0;
     }
 
-/* 右寄せ・左寄せオブジェクトの基本設定 */
+/* 左寄せオブジェクトの基本設定 */
 .left-object {
+    transition: all ease-in 0.5s;
     position: absolute;
     left: min(40px, 5%);
     z-index: 1;
 }
+/* 
+ * キャプションスタイルの左寄せオブジェクトの登場アニメーション（遷移）
+ * 表示領域に映ったらクラスが付与される
+ */
+.left-object.caption { transform: translateX(-120%); }
+
+.left-object.caption.active { transform: translateX(0); }
 
 .left-object.phrase {
     letter-spacing: max(-1.6em, -18px);
     left: -38px;
+    /* アニメーションに関するプロパティ */
+    transform: scale(1.25);
+    opacity: 0;
 }
 
+.left-object.phrase.active {
+    transform: scale(1);
+    opacity: 1;
+}
+/* 右寄せオブジェクトの基本設定 */
 .right-object {
+    transition: all ease-in 0.5s;
     position: absolute;
-    right: 30px;
+    right: 20px;
     z-index: 1;
 }
+/* キャプションスタイルの右寄せオブジェクトの登場アニメーション */
+.right-object.caption { transform: translateX(120%); }
 
-    .right-object.phrase {
-        position: absolute;
-        letter-spacing: max(-1.6em, -18px);
-        right: -38px;
-    }
+.right-object.caption.active { transform: translateX(0); }
+
+.right-object.phrase {
+    letter-spacing: max(-1.6em, -18px);
+    right: -38px;
+    /* アニメーションに関するプロパティ */
+    transform: scale(1.25);
+    opacity: 0;
+}
+
+.right-object.phrase.active {
+    transform: scale(1);
+    opacity: 1;
+}
 
 /* -- アニメーション -- */
 
@@ -390,9 +422,9 @@ footer {
 }
 
 @keyframes arrow-down-animation {
-    0% { transform: translateY(0%) rotate(180deg); }
-    50% { transform: translateY(10%) rotate(180deg); }
-    100% { transform: translateY(0%) rotate(180deg); }
+    0% { transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 180deg);}
+    50% { transform: translate3d(0, 10%, 0) rotate3d(0, 0, 1, 180deg); }
+    100% {transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 180deg);}
 }
 
 /* -- フォント -- */
