@@ -16,3 +16,10 @@ mdファイルの記述法はこちらのサイトなどを参照する、それ
       https://zenn.dev/ultrasevenstar/articles/2bacfb1f338875
   - 「JSDocリファレンス」<br>
       https://www.typescriptlang.org/ja/docs/handbook/jsdoc-supported-types.html
+
+##  起動するための方法
+- 起動するためにはターミナルに以下のコードを打ち込む
+  - cd rootine-server
+  - npm start
+- 打ったらブラウザを開いて以下を検索窓に入力
+  - localhost:3000
