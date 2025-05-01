@@ -167,6 +167,7 @@ main {
     right: 1em;
     top: 0;
     transform: translateY(100%);
+    caret-color: transparent;
 }
 
 #logIn {

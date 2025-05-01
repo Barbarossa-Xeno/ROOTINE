@@ -2,17 +2,17 @@
 <html>
 
 <head>
-    <title>
-        <%= userId %>さんのホーム | ROOTINE
-    </title>
+    <title><%= userId %>さんのホーム | ROOTINE</title>
     <link rel="stylesheet" href="/stylesheets/home.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/libraries/particles.js/myParticles.css" />
+    <link rel="stylesheet" href="/libraries/tom-select/dist/css/tom-select.css" />
 </head>
 
 <body>
     <main>
         <header>
-            <div class="logo"><img src="/images/ROOTINE_logo_color.png" /></div>
+            <div class="logo"><img src="/images/ROOTINE_logo_white.png" /></div>
             <div class="user-id">
                 <p>
                     <%= userId %>
@@ -61,15 +61,42 @@
             <div class="palette">
                 <div class="pins"></div>
                 <div class="apps">
-                    <button id="addOrder"></button>
-                    <button id="completeOrder"></button>
-                    <button id="orderHistory"></button>
-                    <button id="registerItem"></button>
-                    <button id="itemInformation"></button>
-                    <button id="saleStatus"></button>
-                    <button id="calculateSale"></button>
-                    <button id="manageShift"></button>
-                    <button id="storeSetting"></button>
+                    <button id="addOrder" class="app-button">
+                        <img src="/images/icons/ROOTINE_icon_add_order.png" alt="注文追加">
+                        <p>注文追加</p>
+                    </button>
+                    <button id="completeOrder" class="app-button">
+                        <img src="/images/icons/ROOTINE_icon_complete_order.png" alt="注文完了">
+                        <p>注文完了</p>
+                    </button>
+                    <button id="orderHistory" class="app-button">
+                        <img src="/images/icons/ROOTINE_icon_order_history.png" alt="注文履歴">
+                        <p>注文履歴</p>
+                    </button>
+                    <button id="registerItem" class="app-button">
+                        <img src="/images/icons/ROOTINE_icon_register_item.png" alt="商品登録">
+                        <p>商品登録</p>
+                    </button>
+                    <button id="itemInformation" class="app-button">
+                        <img src="/images/icons/ROOTINE_icon_item_information.png" alt="商品情報">
+                        <p>商品情報</p>
+                    </button>
+                    <button id="saleStatus" class="app-button">
+                        <img src="/images/icons/ROOTINE_icon_sale_status.png" alt="売上状況">
+                        <p>売上状況</p>
+                    </button>
+                    <button id="calculateSale" class="app-button">
+                        <img src="/images/icons/ROOTINE_icon_calculate_sales.png" alt="売上集計">
+                        <p>売上集計</p>
+                    </button>
+                    <button id="manageShift" class="app-button">
+                        <img src="/images/icons/ROOTINE_icon_manage_shift.png" alt="シフト管理">
+                        <p>シフト管理</p>
+                    </button>
+                    <button id="storeSetting" class="app-button">
+                        <img alt="模擬店設定">
+                        <p>模擬店設定</p>
+                    </button>
                 </div>
             </div>
         </div>
@@ -78,7 +105,43 @@
             <li>設定</li>
             <li><a href="index">インデックス</a></li>
         </nav>
+        <div id="modalArea">
+            <div class="window">
+                <h2>注文追加</h2>
+                <div class="icon-area">
+                    <img src="/images/icons/ROOTINE_icon_add_order.png">
+                </div>
+                <table class="contents">
+                    <tr>
+                        <td>商品</td>
+                        <td>
+                            <select id="selectItems" multiple data-placeholder="item list">
+                                <!-- EJS構文必須ポイント？ -->
+                                <option value="item01">item01</option>
+                                <option value="item02">item02</option>
+                                <option value="item03">item03</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>整理券番号</td>
+                        <td>test</td>
+                    </tr>
+                    <tr>
+                        <td>個数</td>
+                        <td>0</td>
+                    </tr>
+                </table>
+                <button class="enter"></button>
+            </div>
+        </div>
     </main>
+    <div id="particles-js"></div>
+
+    <script src="/libraries/particles.js/particles.min.js"></script>
+    <script src="/libraries/particles.js/myParticles.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
 
     <script src="/javascripts/client/home.js"></script>
 </body>
