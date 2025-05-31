@@ -23,3 +23,9 @@ mdファイルの記述法はこちらのサイトなどを参照する、それ
   - npm start
 - 打ったらブラウザを開いて以下を検索窓に入力
   - localhost:3000
+
+##　弄り方
+- cmdにmongoshと入力
+　https://qiita.com/ekzemplaro/items/dd712c2af1c908a97965
+　あとはこれを参照
+　気が向いたら追記します
